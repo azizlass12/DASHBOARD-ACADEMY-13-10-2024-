@@ -1,0 +1,36 @@
+
+<clr-datagrid>
+    <clr-dg-action-bar>
+        <div class="btn-group large-screen">
+           
+            <button type="button" class="btn btn-sm btn-secondary" routerLink="./add-formation" >
+                <clr-icon shape="plus"></clr-icon>  Ajouter Formateur
+            </button>
+        </div>
+    </clr-dg-action-bar>
+    <clr-dg-column>Id</clr-dg-column>
+
+    <clr-dg-column>titre</clr-dg-column>
+    <clr-dg-column>description</clr-dg-column>
+    <clr-dg-column>specialite</clr-dg-column>
+    <clr-dg-column>nombre de heure</clr-dg-column>
+    <clr-dg-column>niveau</clr-dg-column>
+    <clr-dg-column>Action</clr-dg-column>
+
+    <clr-dg-row  >
+      <clr-dg-cell></clr-dg-cell>
+      <clr-dg-cell></clr-dg-cell>
+      <clr-dg-cell></clr-dg-cell>
+      <clr-dg-cell></clr-dg-cell>
+      <clr-dg-cell></clr-dg-cell>
+
+      <clr-dg-cell></clr-dg-cell>
+
+      <clr-dg-cell><div class="btn-group btn-primary">
+        <button class="btn btn-success" >Modifier</button>
+        <button class="btn btn-danger">Supprimer</button>
+      </div></clr-dg-cell>
+      </clr-dg-row>
+    <clr-dg-footer> users</clr-dg-footer>
+  </clr-datagrid>
+  <app-delete-formation ></app-delete-formation >

@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Edit Matière</h2>
+
+  <!-- Form Group -->
+  <form [formGroup]="registerForm" (ngSubmit)="updateMatiere()">
+    
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+        id="name" 
+        type="text" 
+        formControlName="name" 
+        class="form-control" 
+        placeholder="Enter the name of the matière">
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea 
+        id="description" 
+        formControlName="description" 
+        class="form-control" 
+        rows="3" 
+        placeholder="Enter the description of the matière"></textarea>
+    </div>
+
+    <!-- Image Upload Field -->
+    <div class="form-group">
+      <label for="image">Upload Image</label>
+      <input 
+        id="image" 
+        type="file" 
+        (change)="onFileSelected($event)" 
+        class="form-control">
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+      <button 
+        type="submit" 
+        class="btn btn-primary" 
+        [disabled]="!registerForm.dirty && !selectedFile">
+        Update Matière
+      </button>
+<!-- 
+      <button 
+        type="button" 
+        class="btn btn-secondary" 
+        (click)="resetForm()">
+        Reset Form
+      </button> -->
+    </div>
+
+    <!-- Display Success/Error Messages (optional) -->
+    
+
+  </form>
+</div>

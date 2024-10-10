@@ -1,0 +1,40 @@
+  <!-- src/app/components/add-formation/add-formation.component.html -->
+
+  <div class="add-formation-container">
+    <h2>Add New Formation</h2>
+    <form [formGroup]="formationForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" formControlName="name" class="form-control" />
+        <div *ngIf="formationForm.get('name')?.invalid && formationForm.get('name')?.touched" class="text-danger">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+        <div *ngIf="formationForm.get('description')?.invalid && formationForm.get('description')?.touched" class="text-danger">
+          Description is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input id="image" type="file" (change)="onImageSelected($event)" accept="image/*" class="form-control-file" />
+        <div *ngIf="formationForm.get('image')?.invalid && formationForm.get('image')?.touched" class="text-danger">
+          Image is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="matieres">Matieres:</label>
+        <select id="matieres" formControlName="matieres" multiple class="form-control">
+          <option *ngFor="let matiere of matieres" [value]="matiere">{{ matiere }}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">Add Formation</button>
+    </form>
+  </div>
