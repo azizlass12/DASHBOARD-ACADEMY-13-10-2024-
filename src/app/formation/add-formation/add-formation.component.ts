@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formation, FormationService } from '../formation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-formation',
@@ -42,34 +43,55 @@ export class AddFormationComponent implements OnInit {
       this.formationForm.get('image')?.updateValueAndValidity();
     }
   }
-
   onSubmit(): void {
     if (this.formationForm.invalid) {
-      console.error('Form is invalid');
-      return;
+        console.error('Form is invalid');
+        Swal.fire({
+            title: 'Form Invalid!',
+            text: 'Please make sure all required fields are filled out correctly.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
     }
 
     const formationData: Formation = {
-      name: this.formationForm.value.name,
-      description: this.formationForm.value.description,
-      image: this.selectedImage as File,
-      matieres: this.formationForm.value.matieres
+        name: this.formationForm.value.name,
+        description: this.formationForm.value.description,
+        image: this.selectedImage as File,
+        matieres: this.formationForm.value.matieres
     };
 
     this.isSubmitting = true;
 
     this.formationService.addFormation(formationData).subscribe({
-      next: (response) => {
-        console.log('Formation added successfully:', response);
-        this.isSubmitting = false;
-        this.formationForm.reset();
-        this.selectedImage = null;
-      },
-      error: (error) => {
-        console.error('Error adding formation:', error);
-        this.isSubmitting = false;
-      }
+        next: (response) => {
+            console.log('Formation added successfully:', response);
+            this.isSubmitting = false;
+            this.formationForm.reset();
+            this.selectedImage = null;
+
+            // Show SweetAlert success message
+            Swal.fire({
+                title: 'Success!',
+                text: 'Formation added successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        },
+        error: (error) => {
+            console.error('Error adding formation:', error);
+            this.isSubmitting = false;
+
+            // Show SweetAlert error message
+            Swal.fire({
+                title: 'Error!',
+                text: 'There was a problem adding the formation. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
     });
-  }
+}
 
 }

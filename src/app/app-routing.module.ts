@@ -6,16 +6,19 @@ import { ListeFormationComponent } from './formation/liste-formation/liste-forma
 import { MatiereListComponent } from './matiere/matiere-list/matiere-list.component';
 import { AddMatiereComponent } from './matiere/add-matiere/add-matiere.component';
 import { EditMatiereComponent } from './matiere/edit-matiere/edit-matiere.component';
+import { EditFormationComponent } from './formation/edit-formation/edit-formation.component';
+import { MatiereByIdComponent } from './matiere/matiere-by-id/matiere-by-id.component';
 
 const routes: Routes = [
   
   {path: '', component:DashboardComponent},
   {path: 'AddFormation', component:AddFormationComponent},
   {path: 'formationList', component:ListeFormationComponent},
+  { path: 'formation/edit/:formationId', component: EditFormationComponent },
   {path: 'AddMatiere/:id', component:AddMatiereComponent},
   {path: 'MatiereList/:id', component:MatiereListComponent},
   { path: 'matiere/edit/:formationId/:idMat', component: EditMatiereComponent },
-  { path: 'formation/edit/:formationId', component: EditMatiereComponent },
+  { path: 'matiere/:formationId/:matiereId', component: MatiereByIdComponent },
 
   
   

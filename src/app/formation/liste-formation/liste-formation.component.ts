@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { FormationService } from '../formation.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-liste-formation',
@@ -14,12 +15,13 @@ import { FormationService } from '../formation.service';
 export class  ListeFormationComponent implements OnInit {
   formations: any[] = [];
 
-  constructor(private fs:FormationService) {}
+  constructor(private fs:FormationService,private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     
 this.fs.getAllFormations().subscribe ((data:any)=> {
   this.formations=data
+  
   console.log('this is my data ',data)
 })
   }
@@ -33,4 +35,8 @@ this.fs.getAllFormations().subscribe ((data:any)=> {
       // Optionally, handle errors (e.g., show a message)
     });
   }
+  public getSantizeUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+}
+
 }

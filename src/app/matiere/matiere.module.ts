@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AddMatiereComponent } from './add-matiere/add-matiere.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditMatiereComponent } from './edit-matiere/edit-matiere.component';
+import { MatiereByIdComponent } from './matiere-by-id/matiere-by-id.component';
 
 
 @NgModule({
@@ -16,6 +17,8 @@ import { EditMatiereComponent } from './edit-matiere/edit-matiere.component';
     
   
   
+  
+    MatiereByIdComponent
   ],
   imports: [
     CommonModule,

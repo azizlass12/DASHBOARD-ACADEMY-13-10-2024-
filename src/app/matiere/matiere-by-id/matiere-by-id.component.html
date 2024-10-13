@@ -1,0 +1,33 @@
+<div class="matiere-details">
+    <div class="header">
+      <img [src]="matiere.image" alt="{{ matiere.name }}" class="matiere-image">
+      <div class="matiere-info">
+        <h1>{{ matiere.name }}</h1>
+        <p class="category">{{ matiere.category }} | {{ matiere.language }} | Level: {{ matiere.level }}</p>
+        <p class="price">{{ matiere.price }}</p>
+      </div>
+    </div>
+    
+    <div class="instructor">
+      <h2>Instructor: {{ matiere.instructor }}</h2>
+    </div>
+  
+    <div class="description">
+      <h3>Description</h3>
+      <p>{{ matiere.description }}</p>
+    </div>
+  
+    <div class="details">
+      <h3>Course Details</h3>
+      <ul>
+        <li><strong>Duration:</strong> {{ matiere.duration }}</li>
+        <li><strong>Enrollments:</strong> {{ matiere.enrollments }}</li>
+        <li><strong>Rating:</strong> {{ matiere.rating }} stars</li>
+      </ul>
+    </div>
+  
+    <div class="download">
+      <a [href]="matiere.downloadLink" target="_blank" class="download-btn">Download Course</a>
+    </div>
+  </div>
+  

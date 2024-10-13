@@ -1,0 +1,97 @@
+.matiere-details {
+    max-width: 800px;
+    margin: 20px auto;
+    margin-top: 45px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .matiere-image {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  .matiere-info h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .category {
+    color: #666;
+  }
+  
+  .price {
+    color: #e67e22;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .instructor h2 {
+    margin: 51px 0 10px;
+  }
+  
+  .description {
+    margin: 20px 0;
+  }
+  
+  .details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .details li {
+    margin: 5px 0;
+  }
+  
+  .download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .download-btn:hover {
+    background-color: #2980b9;
+  }
+  /* ... existing styles ... */
+
+.stars {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .stars span {
+    font-size: 20px;
+    color: #ddd; /* Default color for empty stars */
+    margin-right: 2px;
+  }
+  
+  .stars .filled {
+    color: #f1c40f; /* Gold color for filled stars */
+  }
+  
+  .stars .half-filled::before {
+    content: '\2605'; /* Unicode star */
+    position: absolute;
+    color: #f1c40f;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .stars .empty {
+    color: #ddd;
+  }
+  

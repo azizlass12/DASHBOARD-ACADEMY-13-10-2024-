@@ -1,48 +1,257 @@
-<form [formGroup]="matiereForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="name">Nom:</label>
-      <input
-        id="name"
-        formControlName="name"
-        type="text"
-        class="form-control"
-        [ngClass]="{'is-invalid': matiereForm.get('name')?.invalid && matiereForm.get('name')?.touched}"
-      />
-      <div *ngIf="matiereForm.get('name')?.invalid && matiereForm.get('name')?.touched" class="invalid-feedback">
-        Le nom est requis.
+<div class="row mb-4">
+  <div class="col-12 text-center">
+    <h2 class="mb-2">Ajouter une Nouvelle Matière</h2>
+  </div>
+</div>
+<form style="padding: 70px;" [formGroup]="matiereForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="needs-validation" novalidate>
+ 
+  <div class="container">
+    
+    <div class="row">
+      
+      <!-- Nom -->
+      <div class="col-md-6 mb-3">
+        <label for="name">Nom<span class="text-danger">*</span></label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('name')?.invalid && matiereForm.get('name')?.touched}"
+          placeholder="Entrez le nom"
+          aria-describedby="nameHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('name')?.invalid && matiereForm.get('name')?.touched" class="invalid-feedback">
+          Le nom est requis.
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="col-md-6 mb-3">
+        <label for="category">Catégorie<span class="text-danger">*</span></label>
+        <input
+          id="category"
+          formControlName="category"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('category')?.invalid && matiereForm.get('category')?.touched}"
+          placeholder="Entrez la catégorie"
+          aria-describedby="categoryHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('category')?.invalid && matiereForm.get('category')?.touched" class="invalid-feedback">
+          La catégorie est requise.
+        </div>
       </div>
     </div>
-  
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea
-        id="description"
-        formControlName="description"
-        class="form-control"
-        [ngClass]="{'is-invalid': matiereForm.get('description')?.invalid && matiereForm.get('description')?.touched}"
-      ></textarea>
-      <div *ngIf="matiereForm.get('description')?.invalid && matiereForm.get('description')?.touched" class="invalid-feedback">
-        La description est requise.
+
+    <div class="row">
+      <!-- Instructor/Author -->
+      <div class="col-md-6 mb-3">
+        <label for="instructor">Instructeur/Auteur<span class="text-danger">*</span></label>
+        <input
+          id="instructor"
+          formControlName="instructor"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('instructor')?.invalid && matiereForm.get('instructor')?.touched}"
+          placeholder="Entrez le nom de l'instructeur/auteur"
+          aria-describedby="instructorHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('instructor')?.invalid && matiereForm.get('instructor')?.touched" class="invalid-feedback">
+          Le nom de l'instructeur/auteur est requis.
+        </div>
+      </div>
+
+      <!-- Duration -->
+      <div class="col-md-6 mb-3">
+        <label for="duration">Durée<span class="text-danger">*</span></label>
+        <input
+          id="duration"
+          formControlName="duration"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('duration')?.invalid && matiereForm.get('duration')?.touched}"
+          placeholder="Entrez la durée"
+          aria-describedby="durationHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('duration')?.invalid && matiereForm.get('duration')?.touched" class="invalid-feedback">
+          La durée est requise.
+        </div>
       </div>
     </div>
-  
-    <div class="form-group">
-      <label for="image">Image:</label>
-      <input
-        id="image"
-        type="file"
-        (change)="onFileSelected($event)"
-        accept="image/*"
-        class="form-control-file"
-        [ngClass]="{'is-invalid': matiereForm.get('image')?.invalid && matiereForm.get('image')?.touched}"
-      />
-      <div *ngIf="matiereForm.get('image')?.invalid && matiereForm.get('image')?.touched" class="invalid-feedback d-block">
-        L'image est requise.
+
+    <div class="row">
+      <!-- Level -->
+      <div class="col-md-6 mb-3">
+        <label for="level">Niveau<span class="text-danger">*</span></label>
+        <input
+          id="level"
+          formControlName="level"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('level')?.invalid && matiereForm.get('level')?.touched}"
+          placeholder="Entrez le niveau"
+          aria-describedby="levelHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('level')?.invalid && matiereForm.get('level')?.touched" class="invalid-feedback">
+          Le niveau est requis.
+        </div>
+      </div>
+
+      <!-- Language -->
+      <div class="col-md-6 mb-3">
+        <label for="language">Langue<span class="text-danger">*</span></label>
+        <input
+          id="language"
+          formControlName="language"
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('language')?.invalid && matiereForm.get('language')?.touched}"
+          placeholder="Entrez la langue"
+          aria-describedby="languageHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('language')?.invalid && matiereForm.get('language')?.touched" class="invalid-feedback">
+          La langue est requise.
+        </div>
       </div>
     </div>
-  
-    <button type="submit" class="btn btn-primary" [disabled]="matiereForm.invalid">
-      Soumettre
-    </button>
-  </form>
-  
+
+    <div class="row">
+      <!-- Price -->
+      <div class="col-md-4 mb-3">
+        <label for="price">Prix<span class="text-danger">*</span></label>
+        <input
+          id="price"
+          formControlName="price"
+          type="number"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('price')?.invalid && matiereForm.get('price')?.touched}"
+          placeholder="Entrez le prix"
+          aria-describedby="priceHelp"
+          min="0"
+          required
+        />
+        <div *ngIf="matiereForm.get('price')?.invalid && matiereForm.get('price')?.touched" class="invalid-feedback">
+          Le prix est requis et doit être un nombre positif.
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="col-md-4 mb-3">
+        <label for="rating">Évaluation<span class="text-danger">*</span></label>
+        <input
+          id="rating"
+          formControlName="rating"
+          type="number"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('rating')?.invalid && matiereForm.get('rating')?.touched}"
+          placeholder="Entrez l'évaluation (1-5)"
+          aria-describedby="ratingHelp"
+          min="1"
+          max="5"
+          required
+        />
+        <div *ngIf="matiereForm.get('rating')?.invalid && matiereForm.get('rating')?.touched" class="invalid-feedback">
+          L'évaluation est requise et doit être entre 1 et 5.
+        </div>
+      </div>
+
+      <!-- Enrollments -->
+      <div class="col-md-4 mb-3">
+        <label for="enrollments">Inscriptions<span class="text-danger">*</span></label>
+        <input
+          id="enrollments"
+          formControlName="enrollments"
+          type="number"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('enrollments')?.invalid && matiereForm.get('enrollments')?.touched}"
+          placeholder="Entrez le nombre d'inscriptions"
+          aria-describedby="enrollmentsHelp"
+          min="0"
+          required
+        />
+        <div *ngIf="matiereForm.get('enrollments')?.invalid && matiereForm.get('enrollments')?.touched" class="invalid-feedback">
+          Le nombre d'inscriptions est requis et doit être un nombre positif.
+        </div>
+      </div>
+    </div>
+
+    <!-- Download Link -->
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="downloadLink">Lien de téléchargement<span class="text-danger">*</span></label>
+        <input
+          id="downloadLink"
+          formControlName="downloadLink"
+          type="url"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('downloadLink')?.invalid && matiereForm.get('downloadLink')?.touched}"
+          placeholder="Entrez le lien de téléchargement"
+          aria-describedby="downloadLinkHelp"
+          required
+        />
+        <div *ngIf="matiereForm.get('downloadLink')?.invalid && matiereForm.get('downloadLink')?.touched" class="invalid-feedback">
+          Un lien de téléchargement valide est requis.
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="description">Description<span class="text-danger">*</span></label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+          [ngClass]="{'is-invalid': matiereForm.get('description')?.invalid && matiereForm.get('description')?.touched}"
+          placeholder="Entrez la description"
+          rows="4"
+          aria-describedby="descriptionHelp"
+          required
+        ></textarea>
+        <div *ngIf="matiereForm.get('description')?.invalid && matiereForm.get('description')?.touched" class="invalid-feedback">
+          La description est requise.
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="row">
+      <div class="col-12 mb-4">
+        <label for="image">Image<span class="text-danger">*</span></label>
+        <div class="custom-file">
+          <input
+            id="image"
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+            class="custom-file-input"
+            [ngClass]="{'is-invalid': matiereForm.get('image')?.invalid && matiereForm.get('image')?.touched}"
+            aria-describedby="imageHelp"
+            required
+          />
+          <label class="custom-file-label" for="image">Choisissez une image</label>
+        </div>
+        <div *ngIf="matiereForm.get('image')?.invalid && matiereForm.get('image')?.touched" class="invalid-feedback d-block">
+          Une image est requise.
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="matiereForm.invalid">
+          <i class="fas fa-paper-plane"></i> Soumettre
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
